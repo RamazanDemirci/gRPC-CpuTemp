@@ -1,3 +1,6 @@
+![influxdb_web_page_1](https://user-images.githubusercontent.com/8038366/125861159-7bf85c9f-4f8a-4868-a850-c5e06975a222.png)
+![influxdb_web_page_2](https://user-images.githubusercontent.com/8038366/125861179-4d854c11-676e-41e9-ade5-66e96531291b.png)
+
 # gRPC-CpuTemp
 
 This Project has two grpc services respectively CpuTempService and OpenWeaterService. 
