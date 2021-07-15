@@ -1,0 +1,40 @@
+
+syntax = "proto3";
+
+option go_package = "github.com/RamazanDemirci/open_weather/grpc";
+//option java_multiple_files = true;
+//option java_package = "io.grpc.examples.routeguide";
+//option java_outer_classname = "RouteGuideProto";
+
+package openweather;
+
+// Interface exported by the server.
+service OpenWeather {
+  // A simple RPC.
+  //
+  // Obtains the current location
+  //
+  // A feature with an empty name is returned if there's no feature at the given
+  // position.
+  rpc GetTemperatureByLocation(Location) returns (Temperature) {}
+  
+}
+
+// Points are represented as latitude-longitude pairs in the E7 representation
+// (degrees multiplied by 10**7 and rounded to the nearest integer).
+// Latitudes should be in the range +/- 90 degrees and longitude should be in
+// the range +/- 180 degrees (inclusive).
+message Temperature {
+  string Location = 1;
+  double Temp = 2; // current Temperature
+  double Temp_min = 3;   // lowest Temperatures
+  double Temp_max = 4;   // higest Temperatures
+  int64 TimeStamp = 5;
+}
+
+// A feature names something at a given point.
+//
+// If a feature could not be named, the name is empty.
+message Location {
+  string location = 1; // The Location
+}

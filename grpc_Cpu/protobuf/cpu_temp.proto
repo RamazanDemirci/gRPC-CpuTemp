@@ -1,0 +1,42 @@
+
+syntax = "proto3";
+
+option go_package = "github.com/RamazanDemirci/gRPC-CpuTemp/grpc";
+
+package cputemp;
+
+// Interface exported by the server.
+service CpuTemp {
+  // A simple RPC.
+  //
+  // Obtains the current location
+  //
+  // A feature with an empty name is returned if there's no feature at the given
+  // position.
+  rpc GetCpuTemperature(Empty) returns (Units) {}
+  
+}
+
+message Units{
+  repeated Temperature Temp = 1;
+}
+
+message Temperature {
+	string Unit = 1;
+	double Current = 2;
+	double High = 3;
+	double Critical = 4;
+    int64 TimeStamp = 5;
+}
+
+
+// A generic empty message that you can re-use to avoid defining duplicated
+// empty messages in your APIs. A typical example is to use it as the request
+// or the response type of an API method. For instance:
+//
+//     service Foo {
+//       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+//     }
+//
+// The JSON representation for `Empty` is empty JSON object `{}`.
+message Empty {}
